@@ -1,0 +1,42 @@
+Fixing a Plotly figure
+Examine the monthly_sales dictionary that has been printed in the console to determine what is missing.
+Update the type inside the data element of monthly_sales to be a bar chart.
+Update the text element of the title of the layout element to be 'Sales for Jan-Mar 2020'.
+Create a figure using go.Figure() and the monthly_sales dictionary.
+
+# Examine the printed dictionary
+
+# Update the type
+monthly_sales['data'][0]['type'] = 'bar'
+
+# Update the title text
+monthly_sales['layout']['title']['text'] = 'Sales for Jan-Mar 2020'
+
+# Create a figure
+fig = go.Figure(monthly_sales)
+
+# Print it out!
+fig.show()
+
+Student scores bar graph
+The school board has asked you to come and look at some test scores. They want an easy way to visualize the score of different students within a small class. This seems like a simple use case to practice your bar chart skills!
+
+In this exercise, you will help the school board team by creating a bar chart of school test score values.
+
+A DataFrame student_scores has been provided. In this and all future exercises where it is needed, plotly.express has already been loaded as px.
+
+Instructions
+100 XP
+Examine the head of the provided student_scores DataFrame that has been printed for you to see what it contains.
+Create a simple bar plot, setting the y-axis to be the score and the x-axis to be the student name.
+Add a title to the plot: call it 'Student Scores by Student'.
+
+# Create the bar plot
+fig = px.bar(data_frame=student_scores, 
+             x='student_name', 
+             y='score', 
+             title='Student Scores by Student')
+
+# Show the plot
+fig.show()
+
