@@ -148,6 +148,56 @@ fig = px.histogram(
 # Show the plot
 fig.show()
 
+Ch2
+
+Building a scatterplot with specific colors
+Instructions
+Create a color_map dictionary that maps the species (Adelie, Gentoo, Chinstrap) to the RGB codes (235, 52, 52), (235, 149, 52), and (67, 52, 235) respectively.
+Create a basic scatterplot using plotly.express for the penguins data, visualizing the features Culmen Length (mm) on the x-axis and Culmen Depth (mm) on the y-axis.
+Set the colors of the scatterplot to be the Species and use the color_map that you created.
+
+
+# Set up the color map
+color_map = {'Adelie': 'rgb(235,52,52)' , 'Gentoo': 'rgb(235,149,52)', 'Chinstrap': 'rgb(67,52,235)'}
+
+# Create a scatterplot
+fig = px.scatter(data_frame=penguins, title="Penguin Culmen Statistics",
+    x='Culmen Length (mm)',
+    y='Culmen Depth (mm)',
+    # Set the colors to use your color map
+    color='Species',
+    color_discrete_map=color_map
+)
+
+# Show your work
+fig.show()
+
+
+Bird feature correlations
+Instructions 
+Create a Pearson correlation table using pandas and save it as penguin_corr.
+Create the correlation plot using go.Heatmap(), with appropriate x, y and z elements.
+Use the red-green colorscale ('rdylgn') in the correlation plot.
+Set the min and max values of the correlation plot to align with the minimum and maximum values a Pearson correlation can take.
+
+
+# Create a correlation table with pandas
+penguin_corr = penguins.corr(method='pearson')
+
+# Set up the correlation plot
+fig = go.Figure(go.Heatmap(
+  		# Set the appropriate x, y and z values
+        z=penguin_corr.values.tolist(),
+        x=penguin_corr.columns,
+        y=penguin_corr.columns,
+  		# Set the color scale,
+        colorscale='rdylgn', 
+  		# Set min and max values
+        zmin=-1, zmax=1))
+
+# Show the plot
+fig.show()
+
 
 
 
